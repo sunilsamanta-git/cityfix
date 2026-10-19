@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: cityfix
+  datasource:
+    url: jdbc:h2:mem:cityfix;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+
+app:
+  jwt:
+    # must be at least 32 characters; override with the JWT_SECRET environment variable in production
+    secret: ${JWT_SECRET:cityfix-dev-secret-change-me-please-32chars-min}
+    expiration-ms: 86400000
+  upload-dir: ${UPLOAD_DIR:uploads}

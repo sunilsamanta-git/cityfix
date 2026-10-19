@@ -1,0 +1,13 @@
+# Starts a MySQL database for the "mysql" profile:  docker compose up -d
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cityfix
+    ports:
+      - "3306:3306"
+    volumes:
+      - cityfix-data:/var/lib/mysql
+volumes:
+  cityfix-data:
